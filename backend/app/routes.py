@@ -21,9 +21,9 @@ def create_leader(leader: schemas.LeaderCreate, db: Session = Depends(get_db)):
 def read_leaders(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     return crud.get_all_leaders(db, skip=skip, limit=limit)
 
-@router.get("/leaders/{set}", response_model=List[schemas.Leader])
+@router.get("/leaders/by_set/{set}", response_model=List[schemas.Leader])
 def read_leaders_by_set(set: str, db: Session = Depends(get_db)):
-    return crud.get_leaders_by_set(db, set)
+    return crud.get_leader_by_set(db, set)
 
 
 @router.get("/leaders/{leader_id}", response_model=schemas.Leader)
