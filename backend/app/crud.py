@@ -23,7 +23,10 @@ def get_leader_by_set(db: Session, set: str):
     return db.query(models.Leader).filter(models.Leader.set == set).first()
 
 def get_leader_by_name_and_set(db: Session, name: str, set: str):
-    return db.query(models.Leader).filter(models.Leader.name == name, models.Leader.set == set).first()
+    return db.query(models.Leader).filter(
+        models.Leader.name == name,
+        models.Leader.set == set
+    ).all()
 
 
 def get_all_leaders(db: Session, skip: int = 0, limit: int = 100):

@@ -11,15 +11,26 @@ router = APIRouter()
 
 @router.post("/leaders/", response_model=schemas.Leader)
 def create_leader(leader: schemas.LeaderCreate, db: Session = Depends(get_db)):
-    db_leader = crud.get_leader_by_name_and_set(db, leader.name, leader.set)
-    if db_leader:
+    existing_leaders = crud.get_leader_by_name_and_set(db, leader.name, leader.set)
+    if existing_leaders:  # List is non-empty
         raise HTTPException(status_code=400, detail="Leader already exists")
     return crud.create_leader(db, leader)
 
 
+
 @router.get("/leaders/", response_model=List[schemas.Leader])
-def read_leaders(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+def read_leaders(
+    skip: int = 0,
+    limit: int = 100,
+    name: str = None,
+    set: str = None,
+    db: Session = Depends(get_db)
+):
+    if name and set:
+        return crud.get_leader_by_name_and_set(db, name, set)
     return crud.get_all_leaders(db, skip=skip, limit=limit)
+
+
 
 @router.get("/leaders/by_set/{set}", response_model=List[schemas.Leader])
 def read_leaders_by_set(set: str, db: Session = Depends(get_db)):
