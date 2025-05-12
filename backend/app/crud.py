@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from . import models, schemas
 
 
-# ========== LEADERS ==========
+# LEADERS
 
 def create_leader(db: Session, leader: schemas.LeaderCreate):
     db_leader = models.Leader(name=leader.name, image_url=leader.image_url, set=leader.set)
@@ -19,8 +19,10 @@ def get_leader(db: Session, leader_id: int):
 def get_leader_by_name(db: Session, name: str):
     return db.query(models.Leader).filter(models.Leader.name == name).first()
 
+
 def get_leader_by_set(db: Session, set: str):
     return db.query(models.Leader).filter(models.Leader.set == set).first()
+
 
 def get_leader_by_name_and_set(db: Session, name: str, set: str):
     return db.query(models.Leader).filter(
@@ -33,7 +35,7 @@ def get_all_leaders(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.Leader).offset(skip).limit(limit).all()
 
 
-# ========== MATCHES ==========
+# MATCHES
 
 def create_match(db: Session, match: schemas.MatchCreate):
     db_match = models.Match(**match.dict())

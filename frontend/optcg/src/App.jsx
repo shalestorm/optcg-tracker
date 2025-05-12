@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-
+// super simple template to ensure leaders are properly built in the backend
 function App() {
   const [leaders, setLeaders] = useState([]);
 

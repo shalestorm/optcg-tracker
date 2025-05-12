@@ -7,15 +7,14 @@ from .database import get_db
 router = APIRouter()
 
 
-# ========== LEADER ROUTES ==========
+# LEADER ROUTES
 
 @router.post("/leaders/", response_model=schemas.Leader)
 def create_leader(leader: schemas.LeaderCreate, db: Session = Depends(get_db)):
     existing_leaders = crud.get_leader_by_name_and_set(db, leader.name, leader.set)
-    if existing_leaders:  # List is non-empty
+    if existing_leaders:
         raise HTTPException(status_code=400, detail="Leader already exists")
     return crud.create_leader(db, leader)
-
 
 
 @router.get("/leaders/", response_model=List[schemas.Leader])
@@ -31,7 +30,6 @@ def read_leaders(
     return crud.get_all_leaders(db, skip=skip, limit=limit)
 
 
-
 @router.get("/leaders/by_set/{set}", response_model=List[schemas.Leader])
 def read_leaders_by_set(set: str, db: Session = Depends(get_db)):
     return crud.get_leader_by_set(db, set)
@@ -45,7 +43,7 @@ def read_leader(leader_id: int, db: Session = Depends(get_db)):
     return leader
 
 
-# ========== MATCH ROUTES ==========
+# MATCH ROUTES
 
 @router.post("/matches/", response_model=schemas.Match)
 def create_match(match: schemas.MatchCreate, db: Session = Depends(get_db)):

@@ -3,6 +3,7 @@ from sqlalchemy.orm import relationship
 from datetime import datetime, timezone
 from .database import Base
 
+
 class Leader(Base):
     __tablename__ = "leaders"
 

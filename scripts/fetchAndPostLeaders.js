@@ -1,10 +1,10 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
 
-// Local API URL
+// URL for the "local api"
 const LOCAL_API = 'http://localhost:8000/leaders/';
 
-// Read curated_leaders.json file
+// Read the JSON containing all leaders
 fs.readFile('curated_leaders_cleaned.json', 'utf8', async (err, data) => {
     if (err) {
         console.error('❌ Error reading the JSON file:', err.message);
@@ -23,7 +23,7 @@ fs.readFile('curated_leaders_cleaned.json', 'utf8', async (err, data) => {
                 image_url: leader.image_url || '',
             };
 
-            // Check if the leader already exists in the database
+            // double check if its already in the DB
             const existingRes = await fetch(`${LOCAL_API}?name=${encodeURIComponent(leaderData.name)}&set=${encodeURIComponent(leaderData.set)}`);
             const existingLeaders = await existingRes.json();
 
@@ -33,11 +33,11 @@ fs.readFile('curated_leaders_cleaned.json', 'utf8', async (err, data) => {
             });
 
             if (isLeaderExisting) {
-                console.log(`❌ Leader already exists: ${leaderData.name} (${leaderData.set})`);
+                console.log(`Leader already exists: ${leaderData.name} (${leaderData.set})`);
                 continue;
             }
 
-            // Post the leader data to the local API
+            // Post the leaders themselves over to the DB to populate table data
             const postRes = await fetch(LOCAL_API, {
                 method: 'POST',
                 headers: {
@@ -50,13 +50,13 @@ fs.readFile('curated_leaders_cleaned.json', 'utf8', async (err, data) => {
                 const errorText = await postRes.text();
                 console.warn(`Failed to POST ${leaderData.name}: ${errorText}`);
             } else {
-                console.log(`✅ Added: ${leaderData.name} (${leaderData.set})`);
+                console.log(`Added: ${leaderData.name} (${leaderData.set})`);
                 totalPosted++;
             }
         }
 
-        console.log(`🎉 Finished posting. Total leaders posted: ${totalPosted}`);
+        console.log(`Finished posting. Total leaders posted: ${totalPosted}`);
     } catch (err) {
-        console.error('❌ Error:', err.message);
+        console.error('Error:', err.message);
     }
 });
