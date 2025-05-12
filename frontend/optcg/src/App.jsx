@@ -4,7 +4,7 @@ function App() {
   const [leaders, setLeaders] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/leaders/") // your FastAPI endpoint
+    fetch("http://localhost:8000/leaders/")
       .then(res => {
         if (!res.ok) throw new Error("Failed to fetch leaders");
         return res.json();
