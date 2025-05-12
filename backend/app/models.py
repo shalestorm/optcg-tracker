@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, UniqueConstraint
 from sqlalchemy.orm import relationship
 from datetime import datetime, timezone
 from .database import Base
@@ -7,10 +7,12 @@ class Leader(Base):
     __tablename__ = "leaders"
 
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, unique=True, index=True)
+    name = Column(String, index=True)
     image_url = Column(String, nullable=True)
     set = Column(String, index=True)
     matches = relationship("Match", back_populates="leader", foreign_keys="Match.leader_id")
+
+    __table_args__ = (UniqueConstraint('name', 'set', name='unique_leader_set'),)
 
 
 class Match(Base):
