@@ -1,0 +1,457 @@
+[
+  {
+    "name": "Sabo",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/ST13-001.png?241220",
+    "set": "[ST13]"
+  },
+  {
+    "name": "Portgas.D.Ace",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/ST13-002.png?241220",
+    "set": "[ST13]"
+  },
+  {
+    "name": "Monkey.D.Luffy",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/ST13-003.png?241220",
+    "set": "[ST13]"
+  },
+  {
+    "name": "Kouzuki Oden",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/EB01-001.png?240831",
+    "set": "[EB-01]"
+  },
+  {
+    "name": "Hannyabal",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/EB01-021.png?240831",
+    "set": "[EB-01]"
+  },
+  {
+    "name": "Kyros",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/EB01-040.png?240831",
+    "set": "[EB-01]"
+  },
+  {
+    "name": "Portgas.D.Ace",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP03-001.png",
+    "set": "[OP03]"
+  },
+  {
+    "name": "Kuro",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP03-021.png",
+    "set": "[OP03]"
+  },
+  {
+    "name": "Arlong",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP03-022.png",
+    "set": "[OP03]"
+  },
+  {
+    "name": "Nami",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP03-040.png",
+    "set": "[OP03]"
+  },
+  {
+    "name": "Iceburg",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP03-058.png",
+    "set": "[OP03]"
+  },
+  {
+    "name": "Rob Lucci",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP03-076.png",
+    "set": "[OP03]"
+  },
+  {
+    "name": "Charlotte Linlin",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP03-077.png",
+    "set": "[OP03]"
+  },
+  {
+    "name": "Charlotte Katakuri",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP03-099.png",
+    "set": "[OP03]"
+  },
+  {
+    "name": "Nefeltari Vivi",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP04-001.png",
+    "set": "[OP04]"
+  },
+  {
+    "name": "Donquixote Doflamingo",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP04-019.png",
+    "set": "[OP04]"
+  },
+  {
+    "name": "Issho",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP04-020.png",
+    "set": "[OP04]"
+  },
+  {
+    "name": "Rebecca",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP04-039.png",
+    "set": "[OP04]"
+  },
+  {
+    "name": "Queen",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP04-040.png",
+    "set": "[OP04]"
+  },
+  {
+    "name": "Crocodile",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP04-058.png",
+    "set": "[OP04]"
+  },
+  {
+    "name": "Sabo",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP05-001.png",
+    "set": "[OP-05]"
+  },
+  {
+    "name": "Belo Betty",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP05-002.png",
+    "set": "[OP-05]"
+  },
+  {
+    "name": "Donquixote Rosinante",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP05-022.png",
+    "set": "[OP-05]"
+  },
+  {
+    "name": "Sakazuki",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP05-041.png",
+    "set": "[OP-05]"
+  },
+  {
+    "name": "Monkey.D.Luffy",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP05-060.png",
+    "set": "[OP-05]"
+  },
+  {
+    "name": "Enel",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP05-098.png",
+    "set": "[OP-05]"
+  },
+  {
+    "name": "Uta",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP06-001.png?240222",
+    "set": "[OP06]"
+  },
+  {
+    "name": "Hody Jones",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP06-020.png?240222",
+    "set": "[OP06]"
+  },
+  {
+    "name": "Perona",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP06-021.png?240222",
+    "set": "[OP06]"
+  },
+  {
+    "name": "Yamato",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP06-022.png?240222",
+    "set": "[OP06]"
+  },
+  {
+    "name": "Vinsmoke Reiju",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP06-042.png?240222",
+    "set": "[OP06]"
+  },
+  {
+    "name": "Gecko Moria",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP06-080.png?240222",
+    "set": "[OP06]"
+  },
+  {
+    "name": "Edward.Newgate",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP02-001.png",
+    "set": "[OP02]"
+  },
+  {
+    "name": "Monkey.D.Garp",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP02-002.png",
+    "set": "[OP02]"
+  },
+  {
+    "name": "Kin'emon",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP02-025.png",
+    "set": "[OP02]"
+  },
+  {
+    "name": "Sanji",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP02-026.png",
+    "set": "[OP02]"
+  },
+  {
+    "name": "Emporio.Ivankov",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP02-049.png",
+    "set": "[OP02]"
+  },
+  {
+    "name": "Magellan",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP02-071.png",
+    "set": "[OP02]"
+  },
+  {
+    "name": "Zephyr",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP02-072.png",
+    "set": "[OP02]"
+  },
+  {
+    "name": "Smoker",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP02-093.png",
+    "set": "[OP02]"
+  },
+  {
+    "name": "Monkey.D.Dragon",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP07-001.png?240831",
+    "set": "[OP-07]"
+  },
+  {
+    "name": "Jewelry Bonney",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP07-019.png?240831",
+    "set": "[OP-07]"
+  },
+  {
+    "name": "Boa Hancock",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP07-038.png?240831",
+    "set": "[OP-07]"
+  },
+  {
+    "name": "Foxy",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP07-059.png?240831",
+    "set": "[OP-07]"
+  },
+  {
+    "name": "Rob Lucci",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP07-079.png?240831",
+    "set": "[OP-07]"
+  },
+  {
+    "name": "Vegapunk",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP07-097.png?240831",
+    "set": "[OP-07]"
+  },
+  {
+    "name": "Roronoa Zoro",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP01-001.png",
+    "set": "[OP01]"
+  },
+  {
+    "name": "Trafalgar Law",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP01-002.png",
+    "set": "[OP01]"
+  },
+  {
+    "name": "Monkey.D.Luffy",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP01-003.png",
+    "set": "[OP01]"
+  },
+  {
+    "name": "Kouzuki Oden",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP01-031.png",
+    "set": "[OP01]"
+  },
+  {
+    "name": "Donquixote Doflamingo",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP01-060.png",
+    "set": "[OP01]"
+  },
+  {
+    "name": "Kaido",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP01-061.png",
+    "set": "[OP01]"
+  },
+  {
+    "name": "Crocodile",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP01-062.png",
+    "set": "[OP01]"
+  },
+  {
+    "name": "King",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP01-091.png",
+    "set": "[OP01]"
+  },
+  {
+    "name": "Tony Tony.Chopper",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP08-001.png?240831",
+    "set": "[OP-08]"
+  },
+  {
+    "name": "Marco",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP08-002.png?240831",
+    "set": "[OP-08]"
+  },
+  {
+    "name": "Carrot",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP08-021.png?240831",
+    "set": "[OP-08]"
+  },
+  {
+    "name": "King",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP08-057.png?240831",
+    "set": "[OP-08]"
+  },
+  {
+    "name": "Charlotte Pudding",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP08-058.png?240831",
+    "set": "[OP-08]"
+  },
+  {
+    "name": "Kalgara",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP08-098.png?240831",
+    "set": "[OP-08]"
+  },
+  {
+    "name": "Shanks",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP09-001.png?241220",
+    "set": "[OP-09]"
+  },
+  {
+    "name": "Lim",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP09-022.png?241220",
+    "set": "[OP-09]"
+  },
+  {
+    "name": "Buggy",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP09-042.png?241220",
+    "set": "[OP-09]"
+  },
+  {
+    "name": "Monkey.D.Luffy",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP09-061.png?241220",
+    "set": "[OP-09]"
+  },
+  {
+    "name": "Nico Robin",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP09-062.png?241220",
+    "set": "[OP-09]"
+  },
+  {
+    "name": "Marshall.D.Teach",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP09-081.png?241220",
+    "set": "[OP-09]"
+  },
+  {
+    "name": "Sanji",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/PRB01-001.png?241220",
+    "set": "[PRB-01]"
+  },
+  {
+    "name": "Uta",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/P-011.png",
+    "set": "[FILM RED]"
+  },
+  {
+    "name": "Monkey.D.Luffy",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/ST01-001.png",
+    "set": "[ST-01]"
+  },
+  {
+    "name": "Eustass\"Captain\"Kid",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/ST02-001.png",
+    "set": "[ST-02]"
+  },
+  {
+    "name": "Crocodile",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/ST03-001.png",
+    "set": "[ST-03]"
+  },
+  {
+    "name": "Kaido",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/ST04-001.png",
+    "set": "[ST-04]"
+  },
+  {
+    "name": "Shanks",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/ST05-001.png",
+    "set": "[ST-05]"
+  },
+  {
+    "name": "Sakazuki",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/ST06-001.png",
+    "set": "[ST-06]"
+  },
+  {
+    "name": "Charlotte Linlin",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/ST07-001.png",
+    "set": "[ST-07]"
+  },
+  {
+    "name": "Monkey.D.Luffy",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/ST08-001.png",
+    "set": "[ST-08]"
+  },
+  {
+    "name": "Yamato",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/ST09-001.png",
+    "set": "[ST-09]"
+  },
+  {
+    "name": "Trafalgar Law",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/ST10-001.png",
+    "set": "[ST-10]"
+  },
+  {
+    "name": "Monkey.D.Luffy",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/ST10-002.png",
+    "set": "[ST-10]"
+  },
+  {
+    "name": "Eustass\"Captain\"Kid",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/ST10-003.png",
+    "set": "[ST-10]"
+  },
+  {
+    "name": "Uta",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/ST11-001.png?240222",
+    "set": "[ST-11]"
+  },
+  {
+    "name": "Roronoa Zoro & Sanji",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/ST12-001.png?240222",
+    "set": "[ST-12]"
+  },
+  {
+    "name": "Monkey.D.Luffy",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/P-047.png?240419",
+    "set": "[PROMO]"
+  },
+  {
+    "name": "Sakazuki",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/P-076.png?240419",
+    "set": "[PROMO]"
+  },
+  {
+    "name": "Smoker",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP10-001.png?250509",
+    "set": "[OP-10]"
+  },
+  {
+    "name": "Sugar",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP10-003.png?250509",
+    "set": "[OP-10]"
+  },
+  {
+    "name": "Usopp",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP10-042.png?250509",
+    "set": "[OP-10]"
+  },
+  {
+    "name": "Trafalgar Law",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP10-022.png?250509",
+    "set": "[OP-10]"
+  },
+  {
+    "name": "Eustass'Captain'Kid",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP10-099.png?250509",
+    "set": "[OP-10]"
+  },
+  {
+    "name": "Caesar Clowm",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/OP10-002.png?250509",
+    "set": "[OP-10]"
+  },
+  {
+    "name": "Monkey.D.Luffy",
+    "image_url": "https://en.onepiece-cardgame.com/images/cardlist/card/EB02-010.png?250509",
+    "set": "[EB-02]"
+  }
+]
