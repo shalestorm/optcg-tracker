@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import LeadersMenu from './pages/Leaders_menu.jsx'
 import MatchLogs from './pages/Match_logs.jsx'
+import './App.css';
 
 function App() {
   return (

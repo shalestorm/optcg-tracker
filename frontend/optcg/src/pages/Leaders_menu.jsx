@@ -55,7 +55,7 @@ function LeadersMenu() {
         <div>
             <div class='main-leader-select'>
                 <h2>Select a Leader</h2>
-                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                <div class='main-selection'>
                     {leaders.map((leader) => (
                         <div
                             key={leader.id}
