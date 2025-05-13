@@ -8,6 +8,7 @@ class LeaderBase(BaseModel):
     image_url: Optional[str] = None
     set: str
 
+
 class LeaderCreate(LeaderBase):
     pass
 
