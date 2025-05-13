@@ -4,10 +4,10 @@ const fs = require('fs');
 // URL for the "local api"
 const LOCAL_API = 'http://localhost:8000/leaders/';
 
-// Read the JSON containing all leaders
+// Read the hard coded json to prep for posting to db
 fs.readFile('curated_leaders_cleaned.json', 'utf8', async (err, data) => {
     if (err) {
-        console.error('❌ Error reading the JSON file:', err.message);
+        console.error('Error reading the JSON file:', err.message);
         return;
     }
 
@@ -16,14 +16,14 @@ fs.readFile('curated_leaders_cleaned.json', 'utf8', async (err, data) => {
         let totalPosted = 0;
 
         for (const leader of leaders) {
-            // Prepare the leader object
+            // intializes the leader object
             const leaderData = {
                 name: leader.name,
                 set: leader.set,
                 image_url: leader.image_url || '',
             };
 
-            // double check if its already in the DB
+            // check if entry is already in the DB
             const existingRes = await fetch(`${LOCAL_API}?name=${encodeURIComponent(leaderData.name)}&set=${encodeURIComponent(leaderData.set)}`);
             const existingLeaders = await existingRes.json();
 
