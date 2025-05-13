@@ -52,21 +52,13 @@ function LeadersMenu() {
     });
 
     return (
-        <div>
+        <div className='leader-menu-container'>
+            <h2>Select a Leader</h2>
             <div class='main-leader-select'>
-                <h2>Select a Leader</h2>
+
                 <div class='main-selection'>
                     {leaders.map((leader) => (
-                        <div
-                            key={leader.id}
-                            onClick={() => handleSelectLeader(leader)}
-                            style={{
-                                margin: '10px',
-                                border: '1px solid #ccc',
-                                padding: '10px',
-                                cursor: 'pointer'
-                            }}
-                        >
+                        <div key={leader.id} onClick={() => handleSelectLeader(leader)} className='cards'>
                             <img src={leader.image_url} alt={leader.name} width={150} height={200} />
                             <h3>{leader.name}</h3>
                             <p>Set: {leader.set}</p>
@@ -75,7 +67,7 @@ function LeadersMenu() {
                 </div>
             </div>
 
-            <div class='previously-played'>
+            <div>
                 <h2>Previously Played Leaders</h2>
                 <label>Sort by: </label>
                 <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
@@ -83,26 +75,22 @@ function LeadersMenu() {
                     <option value="highestWinRate">Highest Win Rate</option>
                 </select>
 
-                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                    {sortedStats.map((leader) => (
-                        <div
-                            key={leader.id}
-                            onClick={() => handleSelectLeader(leader)}
-                            style={{
-                                margin: '10px',
-                                border: '2px solid #444',
-                                padding: '10px',
-                                cursor: 'pointer',
-
-                            }}
-                        >
-                            <img src={leader.image_url} alt={leader.name} width={150} height={200} />
-                            <h3>{leader.name}</h3>
-                            <p>Set: {leader.set}</p>
-                            <p>Total Matches: {leader.totalMatches}</p>
-                            <p>Win Rate: {leader.winRate}%</p>
-                        </div>
-                    ))}
+                <div className='previously-played'>
+                    <div className='previously-played-scroll'>
+                        {sortedStats.map((leader) => (
+                            <div
+                                key={leader.id}
+                                onClick={() => handleSelectLeader(leader)}
+                                className='played-leaders'
+                            >
+                                <img src={leader.image_url} alt={leader.name} width={150} height={200} />
+                                <h3>{leader.name}</h3>
+                                <p>Set: {leader.set}</p>
+                                <p>Total Matches: {leader.totalMatches}</p>
+                                <p>Win Rate: {leader.winRate}%</p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

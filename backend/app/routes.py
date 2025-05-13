@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from typing import List
 from . import crud, schemas, models
 from .database import get_db
+from .models import Match
 
 router = APIRouter()
 
@@ -66,3 +67,10 @@ def read_match(match_id: int, db: Session = Depends(get_db)):
 @router.get("/leaders/{leader_id}/matches", response_model=List[schemas.Match])
 def read_matches_by_leader(leader_id: int, db: Session = Depends(get_db)):
     return crud.get_matches_by_leader(db, leader_id)
+
+
+@router.delete("/matches/leader/{leader_id}")
+def delete_matches_by_leader(leader_id: int, db: Session = Depends(get_db)):
+    deleted = db.query(Match).filter(Match.leader_id == leader_id).delete()
+    db.commit()
+    return {"deleted_count": deleted}
