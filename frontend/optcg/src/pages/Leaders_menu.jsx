@@ -53,52 +53,57 @@ function LeadersMenu() {
 
     return (
         <div>
-            <h2>Select a Leader</h2>
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                {leaders.map((leader) => (
-                    <div
-                        key={leader.id}
-                        onClick={() => handleSelectLeader(leader)}
-                        style={{
-                            margin: '10px',
-                            border: '1px solid #ccc',
-                            padding: '10px',
-                            cursor: 'pointer'
-                        }}
-                    >
-                        <img src={leader.image_url} alt={leader.name} width={150} height={200} />
-                        <h3>{leader.name}</h3>
-                        <p>Set: {leader.set}</p>
-                    </div>
-                ))}
+            <div class='main-leader-select'>
+                <h2>Select a Leader</h2>
+                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                    {leaders.map((leader) => (
+                        <div
+                            key={leader.id}
+                            onClick={() => handleSelectLeader(leader)}
+                            style={{
+                                margin: '10px',
+                                border: '1px solid #ccc',
+                                padding: '10px',
+                                cursor: 'pointer'
+                            }}
+                        >
+                            <img src={leader.image_url} alt={leader.name} width={150} height={200} />
+                            <h3>{leader.name}</h3>
+                            <p>Set: {leader.set}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
-            <h2>Previously Played Leaders</h2>
-            <label>Sort by: </label>
-            <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-                <option value="mostPlayed">Most Played</option>
-                <option value="highestWinRate">Highest Win Rate</option>
-            </select>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                {sortedStats.map((leader) => (
-                    <div
-                        key={leader.id}
-                        onClick={() => handleSelectLeader(leader)}
-                        style={{
-                            margin: '10px',
-                            border: '2px solid #444',
-                            padding: '10px',
-                            cursor: 'pointer',
+            <div class='previously-played'>
+                <h2>Previously Played Leaders</h2>
+                <label>Sort by: </label>
+                <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+                    <option value="mostPlayed">Most Played</option>
+                    <option value="highestWinRate">Highest Win Rate</option>
+                </select>
 
-                        }}
-                    >
-                        <img src={leader.image_url} alt={leader.name} width={150} height={200} />
-                        <h3>{leader.name}</h3>
-                        <p>Set: {leader.set}</p>
-                        <p>Total Matches: {leader.totalMatches}</p>
-                        <p>Win Rate: {leader.winRate}%</p>
-                    </div>
-                ))}
+                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                    {sortedStats.map((leader) => (
+                        <div
+                            key={leader.id}
+                            onClick={() => handleSelectLeader(leader)}
+                            style={{
+                                margin: '10px',
+                                border: '2px solid #444',
+                                padding: '10px',
+                                cursor: 'pointer',
+
+                            }}
+                        >
+                            <img src={leader.image_url} alt={leader.name} width={150} height={200} />
+                            <h3>{leader.name}</h3>
+                            <p>Set: {leader.set}</p>
+                            <p>Total Matches: {leader.totalMatches}</p>
+                            <p>Win Rate: {leader.winRate}%</p>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
