@@ -16,7 +16,7 @@ function MatchLogs() {
     const currentMatches = matches.slice(indexOfFirstMatch, indexOfLastMatch);
 
 
-    // Fetch all leaders for the opponent dropdown
+    // Grabs every leader for the match logging form
     useEffect(() => {
         fetch('http://localhost:8000/leaders/')
             .then(res => res.json())
@@ -24,7 +24,7 @@ function MatchLogs() {
             .catch(err => console.error('Failed to fetch leaders:', err));
     }, []);
 
-    // Fetch matches for selected leader
+    // Grabs matches for where the selected leader was played as the selected leader
     useEffect(() => {
         if (selectedLeader) {
             fetch(`http://localhost:8000/leaders/${selectedLeader.id}/matches`)
@@ -34,6 +34,8 @@ function MatchLogs() {
         }
     }, [selectedLeader]);
 
+
+    // Submit handling for the match logging form
     const handleSubmit = (e) => {
         e.preventDefault();
         const newMatch = {
@@ -58,6 +60,8 @@ function MatchLogs() {
             });
     };
 
+
+    // Vars used for showing the amoung of wins losses total games played and some math for getting percentages
     const wins = matches.filter(m => m.result === "win").length;
     const losses = matches.filter(m => m.result === "loss").length;
     const total = matches.length;
@@ -67,45 +71,50 @@ function MatchLogs() {
         <div>
             {selectedLeader ? (
                 <div class='match-container'>
-                    <button><Link to="/leaders">Swap Leader</Link></button>
-                    <h2>{selectedLeader.name} {selectedLeader.set}</h2>
-                    <img src={selectedLeader.image_url} alt={selectedLeader.name} width={300} />
+                    <div class='active-leader-container'>
+                        <button><Link to="/leaders">Swap Leader</Link></button>
+                        <h2>{selectedLeader.name} {selectedLeader.set}</h2>
+                        <img src={selectedLeader.image_url} alt={selectedLeader.name} width={300} />
+                        {/* Stats breakdown*/}
+                        <div class='active-stat-breakdown'>
+                            <h3>Stats</h3>
+                            <p>Wins: {wins}</p>
+                            <p>Losses: {losses}</p>
+                            <p>Total: {total}</p>
+                            <p>Win Rate: {winRate}%</p>
+                        </div>
+                    </div>
 
                     {/* Log Match */}
-                    <h3>Log a New Match</h3>
-                    <form onSubmit={handleSubmit}>
-                        <select value={result} onChange={e => setResult(e.target.value)} required>
-                            <option value="">Result</option>
-                            <option value="win">Win</option>
-                            <option value="loss">Loss</option>
-                        </select>
-                        <select value={position} onChange={e => setPosition(e.target.value)} required>
-                            <option value="">1st/2nd</option>
-                            <option value="1st">1st</option>
-                            <option value="2nd">2nd</option>
-                        </select>
+                    <div class='log-match-container'>
+                        <h3>Log a New Match</h3>
+                        <form onSubmit={handleSubmit}>
+                            <select value={result} onChange={e => setResult(e.target.value)} required>
+                                <option value="">Result</option>
+                                <option value="win">Win</option>
+                                <option value="loss">Loss</option>
+                            </select>
+                            <select value={position} onChange={e => setPosition(e.target.value)} required>
+                                <option value="">1st/2nd</option>
+                                <option value="1st">1st</option>
+                                <option value="2nd">2nd</option>
+                            </select>
 
-                        <select value={opposingLeaderId} onChange={e => setOpposingLeaderId(e.target.value)} required>
-                            <option value="">Opponent</option>
-                            {leaders
-                                .map(l => (
-                                    <option key={l.id} value={l.id}>
-                                        {l.name} ({l.set})
-                                    </option>
-                                ))}
-                        </select>
+                            <select value={opposingLeaderId} onChange={e => setOpposingLeaderId(e.target.value)} required>
+                                <option value="">Opponent</option>
+                                {leaders
+                                    .map(l => (
+                                        <option key={l.id} value={l.id}>
+                                            {l.name} ({l.set})
+                                        </option>
+                                    ))}
+                            </select>
 
-                        <button type="submit">Submit Match</button>
-                    </form>
+                            <button type="submit">Submit Match</button>
+                        </form>
+                    </div>
 
-                    {/* Stats */}
-                    <h3>Stats</h3>
-                    <p>Wins: {wins}</p>
-                    <p>Losses: {losses}</p>
-                    <p>Total: {total}</p>
-                    <p>Win Rate: {winRate}%</p>
-
-                    {/* Match History */}
+                    {/* Match History  window with pagnation*/}
                     <div className="match-history">
                         <h3>Match History</h3>
                         <ul>
@@ -130,6 +139,8 @@ function MatchLogs() {
                             >Next</button>
                         </div>
                     </div>
+
+                    {/* view of breakdowns per leader */}
                     <div className='by-leader'>
                         <h3>Opponent Leader Breakdown</h3>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem' }}>
