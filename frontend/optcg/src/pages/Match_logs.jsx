@@ -10,7 +10,7 @@ function MatchLogs() {
     const [opposingLeaderId, setOpposingLeaderId] = useState('');
     const [position, setPosition] = useState('')
     const [currentPage, setCurrentPage] = useState(1);
-    const matchesPerPage = 10;
+    const matchesPerPage = 8;
     const indexOfLastMatch = currentPage * matchesPerPage;
     const indexOfFirstMatch = indexOfLastMatch - matchesPerPage;
     const sortedMatches = [...matches].sort((a, b) => b.id - a.id);
