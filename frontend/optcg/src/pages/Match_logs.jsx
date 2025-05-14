@@ -8,7 +8,7 @@ function MatchLogs() {
     const [leaders, setLeaders] = useState([]);
     const [result, setResult] = useState('');
     const [opposingLeaderId, setOpposingLeaderId] = useState('');
-    const [position, setPosition] = useState('')
+    const [position, setPosition] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const matchesPerPage = 8;
     const indexOfLastMatch = currentPage * matchesPerPage;
@@ -90,7 +90,7 @@ function MatchLogs() {
                                         .then(res => res.json())
                                         .then(data => {
                                             alert(`Deleted ${data.deleted_count} match(es).`);
-                                            // Refetch and set after matches have been deleted
+                                            // refect in case we delete match history, otherwise element get janked up
                                             fetch(`http://localhost:8000/leaders/${selectedLeader.id}/matches`)
                                                 .then(res => res.json())
                                                 .then(data => setMatches(data));
@@ -276,7 +276,7 @@ function MatchLogs() {
                             </div>
                         ) : (
                             // place holder if no games have been played with this leader before
-                            <h2>No Leader Found.</h2>
+                            <h2>No matches found for this leader.</h2>
                         )}
                     </div>
                 </div>

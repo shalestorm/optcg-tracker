@@ -24,8 +24,8 @@ export default function NotFound() {
                 alt="Nothing at all"
                 style={{ maxWidth: '500px', width: '100%', marginBottom: '20px' }}
             />
-            <h3>Help Zoro find his way back, using this link!</h3>
-            <Link to="/">Go back home</Link>
+            <Link to="/"><h3>Help Zoro find his way back, using this link!</h3></Link>
+
         </div>
     );
 }
