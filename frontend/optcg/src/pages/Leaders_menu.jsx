@@ -65,7 +65,7 @@ function LeadersMenu() {
                 placeholder="Search by name or set..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="leader-search-bar"
+                className="search-bar"
             />
             <div class='main-leader-select'>
 

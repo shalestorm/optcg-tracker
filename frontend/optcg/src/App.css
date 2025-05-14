@@ -2,10 +2,16 @@
   margin-top: 0;
 }
 
+.search-bar {
+  margin-bottom: 12px;
+
+}
+
 /* leaders menu */
 .main-leader-select {
   display: flex;
   justify-content: center;
+
 
 }
 
@@ -16,16 +22,16 @@
 }
 
 .main-selection {
+
   display: flex;
   flex-wrap: wrap;
   height: 450px;
   overflow-y: auto;
-  background-color: black;
   width: 90%;
   justify-content: center;
   gap: 12px;
   border: 3px solid white;
-  box-shadow: 1px 1px 20px rgb(55, 146, 173);
+  padding-top: 12px;
 }
 
 .cards {
@@ -33,6 +39,7 @@
   width: 15%;
   padding-top: 12px;
   cursor: pointer;
+  height: 275.078px;
 }
 
 .cards p {
