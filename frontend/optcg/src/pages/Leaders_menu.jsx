@@ -8,6 +8,7 @@ function LeadersMenu() {
     const [sortBy, setSortBy] = useState('mostPlayed');
     const { setSelectedLeader } = useLeader();
     const navigate = useNavigate();
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
         fetch("http://localhost:8000/leaders/")
@@ -51,13 +52,25 @@ function LeadersMenu() {
         return 0;
     });
 
+    const filteredLeaders = leaders.filter((leader) =>
+        leader.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        leader.set.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
     return (
         <div className='leader-menu-container'>
             <h2>Select a Leader</h2>
+            <input
+                type="text"
+                placeholder="Search by name or set..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="leader-search-bar"
+            />
             <div class='main-leader-select'>
 
                 <div class='main-selection'>
-                    {leaders.map((leader) => (
+                    {filteredLeaders.map((leader) => (
                         <div key={leader.id} onClick={() => handleSelectLeader(leader)} className='cards'>
                             <img src={leader.image_url} alt={leader.name} width={150} height={200} />
                             <h3>{leader.name}</h3>
@@ -66,6 +79,8 @@ function LeadersMenu() {
                     ))}
                 </div>
             </div>
+
+            {/* section for showing previously played leaders, only visible if there ARE previously played leaders in the db */}
             {sortedStats.length > 0 && (
                 <div>
                     <h2>Previously Played Leaders</h2>

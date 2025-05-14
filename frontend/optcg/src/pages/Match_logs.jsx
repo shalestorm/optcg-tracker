@@ -13,7 +13,9 @@ function MatchLogs() {
     const matchesPerPage = 10;
     const indexOfLastMatch = currentPage * matchesPerPage;
     const indexOfFirstMatch = indexOfLastMatch - matchesPerPage;
-    const currentMatches = matches.slice(indexOfFirstMatch, indexOfLastMatch);
+    const sortedMatches = [...matches].sort((a, b) => b.id - a.id);
+    const currentMatches = sortedMatches.slice(indexOfFirstMatch, indexOfLastMatch);
+    const [leaderSearch, setLeaderSearch] = useState('');
 
 
     // Grabs every leader for the match logging form
@@ -70,7 +72,7 @@ function MatchLogs() {
     return (
         <div>
             {selectedLeader ? (
-                <div class='match-container'>
+                <div className='match-container'>
                     <div className='button-container'>
                         <button
                             onClick={(e) => {
@@ -157,6 +159,13 @@ function MatchLogs() {
                         <div class='log-match-container'>
                             <h3>Log a New Match</h3>
                             <h4>Select Opposing Leader:</h4>
+                            <input
+                                type="text"
+                                placeholder="search leaders..."
+                                value={leaderSearch}
+                                onChange={(e) => setLeaderSearch(e.target.value)}
+                                className="search-bar"
+                            />
                             <form onSubmit={handleSubmit}>
 
                                 <div className='form-buttons'>
@@ -207,17 +216,21 @@ function MatchLogs() {
                                 {/* Opposing Leader Selector */}
                                 <div className='form-leader-select'>
                                     <div className="opposing-leader-grid">
-
-                                        {leaders.map((l) => (
-                                            <div
-                                                key={l.id}
-                                                className={`opposing-leader-tile ${parseInt(opposingLeaderId) === l.id ? 'selected' : ''}`}
-                                                onClick={() => setOpposingLeaderId(l.id)}
-                                            >
-                                                <img src={l.image_url} alt={l.name} width={80} />
-                                                <div>{l.name} ({l.set})</div>
-                                            </div>
-                                        ))}
+                                        {leaders
+                                            .filter(l =>
+                                                l.name.toLowerCase().includes(leaderSearch.toLowerCase()) ||
+                                                l.set.toLowerCase().includes(leaderSearch.toLowerCase())
+                                            )
+                                            .map((l) => (
+                                                <div
+                                                    key={l.id}
+                                                    className={`opposing-leader-tile ${parseInt(opposingLeaderId) === l.id ? 'selected' : ''}`}
+                                                    onClick={() => setOpposingLeaderId(l.id)}
+                                                >
+                                                    <img src={l.image_url} alt={l.name} width={80} />
+                                                    <div>{l.name} {l.set}</div>
+                                                </div>
+                                            ))}
                                     </div>
                                 </div>
                             </form>
@@ -243,8 +256,13 @@ function MatchLogs() {
                                         const opponentName = opponent ? `${opponent.name} ${opponent.set}` : `Leader #${match.opposing_leader_id}`;
                                         const resultClass = match.result === 'win' ? 'result-win' : 'result-loss'
                                         return (
-                                            <li key={match.id}>
-                                                <span className={resultClass}>{match.result.toUpperCase()}</span> vs <strong>{opponentName}</strong> --- Going <strong>{match.position}</strong> --- {new Date(match.date).toISOString().split('T')[0]}
+                                            <li key={match.id} className='match-row'>
+                                                <div className='match-left'>
+                                                    <span className={resultClass}>{match.result.toUpperCase()}</span> vs <strong>{opponentName}</strong>
+                                                </div>
+                                                <div className='match-right'>
+                                                    Going <strong>{match.position}</strong> --- {new Date(match.date).toISOString().split('T')[0]}
+                                                </div>
                                             </li>
                                         );
                                     })}
