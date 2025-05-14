@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLeader } from '../context/LeaderContext.jsx';
+import { Helmet } from 'react-helmet';
+
 
 function LeadersMenu() {
     const [leaders, setLeaders] = useState([]);
@@ -24,7 +26,7 @@ function LeadersMenu() {
 
     const handleSelectLeader = (leader) => {
         setSelectedLeader(leader);
-        navigate('/matches');
+        navigate(`/leaders/${leader.id}/matches`);
     };
 
     // Get leaders with at least one match played
@@ -59,6 +61,9 @@ function LeadersMenu() {
 
     return (
         <div className='leader-menu-container'>
+            <Helmet>
+                <title>🏴‍☠️Choose A Leader🏴‍☠️</title>
+            </Helmet>
             <h2>Select a Leader</h2>
             <input
                 type="text"
@@ -67,10 +72,11 @@ function LeadersMenu() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="search-bar"
             />
-            <div class='main-leader-select'>
+            <div className='main-leader-select'>
 
-                <div class='main-selection'>
+                <div className='main-selection'>
                     {filteredLeaders.map((leader) => (
+
                         <div key={leader.id} onClick={() => handleSelectLeader(leader)} className='cards'>
                             <img src={leader.image_url} alt={leader.name} width={150} height={200} />
                             <h3>{leader.name}</h3>

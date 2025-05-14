@@ -2,16 +2,24 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  background-color: #1e1e2e;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --card-bg: #2c2c3b;
+  --accent: #3ce978;
+  --accent-dark: #38a169;
+  --text-light: #f5f5f5;
+  --border-base: #444;
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  --hover-bright: #ffffff33;
 }
+
+
+
 
 a {
   font-weight: 500;
@@ -26,6 +34,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -69,4 +78,130 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+
+/* card tiles */
+.cards,
+.opposing-leader-tile,
+.played-leaders,
+.by-leader,
+.log-match-container,
+.match-history,
+.opp-leaders {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-weight: bold;
+}
+
+
+.cards:hover,
+.opposing-leader-tile:hover,
+.played-leaders:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
+  transform: translateY(-2px);
+  background-color: #3a3a4f;
+}
+
+
+/*Headers */
+h2,
+h3 {
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+}
+
+
+/* some border touchups */
+.main-selection,
+.previously-played-scroll,
+.opposing-leader-grid {
+  border-color: var(--accent);
+}
+
+.opp-leaders {
+  border: 3px solid var(--accent)
+}
+
+
+/* make them buttons pretttyyyyy */
+.toggle-btn {
+  background-color: #2f2f2f;
+  color: var(--text-light);
+  border-color: var(--accent-dark);
+}
+
+.toggle-btn:hover {
+  background-color: #3c3c3c;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.toggle-btn.selected {
+  background-color: var(--accent-dark);
+  color: black;
+  border-color: var(--accent);
+}
+
+/*stats*/
+.active-stat-breakdown {
+  background-color: #000000;
+  border: 1px solid var(--accent-dark);
+  color: rgb(255, 255, 255);
+}
+
+
+/* win loss touchup */
+.result-win {
+  color: #63ff94;
+}
+
+.result-loss {
+  color: #ff6e6e;
+}
+
+/* make delete button less.....scary */
+.delete-match-history {
+  background-color: #ff4d4d;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.delete-match-history:hover {
+  background-color: #cc0000;
+}
+
+
+
+/* match row needs some work */
+.match-row {
+  background-color: #1a1a1a;
+  padding: 8px 12px;
+  border-bottom: 1px solid #333;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+.match-left,
+.match-right {
+  color: var(--text-light);
+}
+
+
+/* looking up scrollbar changes */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2a2a2a;
 }

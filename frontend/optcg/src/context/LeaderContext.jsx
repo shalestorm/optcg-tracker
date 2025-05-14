@@ -4,9 +4,9 @@ export const LeaderContext = createContext();
 
 export const LeaderProvider = ({ children }) => {
     const [selectedLeader, setSelectedLeader] = useState(() => {
-        // Try to retrieve selected leader from localStorage on initial load
+        // retrieve selected leader from localStorage on initial load
         const savedLeader = localStorage.getItem('selectedLeader');
-        return savedLeader ? JSON.parse(savedLeader) : null; // Parse it or return null if not available
+        return savedLeader ? JSON.parse(savedLeader) : null; // return null if not available
     });
 
     // Save the selected leader to localStorage whenever it changes
@@ -23,7 +23,7 @@ export const LeaderProvider = ({ children }) => {
     );
 };
 
-// ✅ Custom hook to access the Leader context
+// hook to access the Leader context
 export const useLeader = () => {
     const context = useContext(LeaderContext);
     if (!context) {

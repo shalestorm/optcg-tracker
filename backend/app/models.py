@@ -24,7 +24,7 @@ class Match(Base):
     result = Column(String)  # "win" or "loss"
     position = Column(String)  # "1st" or "2nd"
 
-    # Player's selected leader
+    # Player current leader
     leader_id = Column(Integer, ForeignKey("leaders.id"))
     leader = relationship("Leader", back_populates="matches", foreign_keys=[leader_id])
 

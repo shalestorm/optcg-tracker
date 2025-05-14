@@ -1,5 +1,6 @@
 .app-container {
   margin-top: 0;
+
 }
 
 .search-bar {
@@ -298,4 +299,15 @@ form {
 
 .result-loss {
   color: red;
+}
+
+/*generic centering*/
+.generic-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+
 }

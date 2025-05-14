@@ -1,9 +1,9 @@
-import { useLeader } from '../context/LeaderContext.jsx';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 function MatchLogs() {
-    const { selectedLeader } = useLeader();
+    const { leaderId } = useParams();
     const [matches, setMatches] = useState([]);
     const [leaders, setLeaders] = useState([]);
     const [result, setResult] = useState('');
@@ -16,6 +16,7 @@ function MatchLogs() {
     const sortedMatches = [...matches].sort((a, b) => b.id - a.id);
     const currentMatches = sortedMatches.slice(indexOfFirstMatch, indexOfLastMatch);
     const [leaderSearch, setLeaderSearch] = useState('');
+    const selectedLeader = leaders.find(l => l.id === parseInt(leaderId));
 
 
     // Grabs every leader for the match logging form
@@ -71,7 +72,10 @@ function MatchLogs() {
 
     return (
         <div>
-            {selectedLeader ? (
+            <Helmet>
+                <title>☠️Match Logs☠️</title>
+            </Helmet>
+            {selectedLeader && leaderId ? (
                 <div className='match-container'>
                     <div className='button-container'>
                         <button
@@ -103,15 +107,15 @@ function MatchLogs() {
                         <button><Link to="/leaders">Swap Leader</Link></button>
                     </div>
                     <h2>{selectedLeader.name} {selectedLeader.set}</h2>
-                    <div class='active-leader-container'>
+                    <div className='active-leader-container'>
                         <div className='leader-and-stats'>
                             <img src={selectedLeader.image_url} alt={selectedLeader.name} width={300} />
                             {/* Stats breakdown*/}
-                            <div class='active-stat-breakdown'>
+                            <div className='active-stat-breakdown'>
                                 <h3>Stats</h3>
                                 <p>Wins: {wins} -- Losses: {losses}</p>
                                 <p>Games Played: {total}</p>
-                                <p>Overall Win Rate: {winRate}%</p>
+                                <p>Overall Win Rate: {total > 0 ? `${winRate}%` : "N/A"}</p>
                             </div>
                         </div>
                         {/* view of breakdowns per leader - of which we hide if the total i.e. games played is 0*/}
@@ -156,7 +160,7 @@ function MatchLogs() {
                     </div>
                     {/* Log Match */}
                     <div className='bottom-section'>
-                        <div class='log-match-container'>
+                        <div className='log-match-container'>
                             <h3>Log a New Match</h3>
                             <h4>Select Opposing Leader:</h4>
                             <input
@@ -270,7 +274,7 @@ function MatchLogs() {
                             </div>
                         ) : (
                             // place holder if no games have been played with this leader before
-                            <h2>No matches found for this leader.</h2>
+                            <h2>No Leader Found.</h2>
                         )}
                     </div>
                 </div>
