@@ -223,6 +223,16 @@ form {
   background-color: #188545;
 }
 
+.result-win {
+  color: green;
+  font-weight: bold;
+}
+
+.result-loss {
+  color: red;
+  font-weight: bold;
+}
+
 /* match history */
 
 .bottom-section {
@@ -235,4 +245,11 @@ form {
 .match-history {
   border: 1px solid #ccc;
   margin-top: 24px;
+  min-width: 30%;
+  text-align: center;
+}
+
+.match-history ul {
+  text-align: left;
+  list-style: none;
 }

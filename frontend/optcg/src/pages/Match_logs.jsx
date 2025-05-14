@@ -241,9 +241,10 @@ function MatchLogs() {
                                     {currentMatches.map(match => {
                                         const opponent = leaders.find(l => l.id === match.opposing_leader_id);
                                         const opponentName = opponent ? `${opponent.name} ${opponent.set}` : `Leader #${match.opposing_leader_id}`;
+                                        const resultClass = match.result === 'win' ? 'result-win' : 'result-loss'
                                         return (
                                             <li key={match.id}>
-                                                {match.result.toUpperCase()} vs {opponentName} --- Going {match.position} --- {new Date(match.date).toISOString().split('T')[0]}
+                                                <span className={resultClass}>{match.result.toUpperCase()}</span> vs <strong>{opponentName}</strong> --- Going <strong>{match.position}</strong> --- {new Date(match.date).toISOString().split('T')[0]}
                                             </li>
                                         );
                                     })}
