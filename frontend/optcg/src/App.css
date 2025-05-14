@@ -1,3 +1,7 @@
+.app-container {
+  margin-top: 0;
+}
+
 /* leaders menu */
 .main-leader-select {
   display: flex;
@@ -5,7 +9,7 @@
 }
 
 .leader-menu-container {
-
+  margin-top: 0;
   text-align: center;
 }
 

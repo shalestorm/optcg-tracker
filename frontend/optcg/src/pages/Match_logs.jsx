@@ -112,40 +112,45 @@ function MatchLogs() {
                                 <p>Overall Win Rate: {winRate}%</p>
                             </div>
                         </div>
-                        {/* view of breakdowns per leader */}
-                        <div className='by-leader'>
-                            <h3>Opponent Leader Breakdown</h3>
-                            <div className='sorted-leader-cards'>
-                                {[...new Set(matches.map(m => m.opposing_leader_id))].map(opponentId => {
-                                    const opponent = leaders.find(l => l.id === opponentId);
-                                    const matchesVsOpponent = matches.filter(m => m.opposing_leader_id === opponentId);
-                                    const matchesFirst = matchesVsOpponent.filter(m => m.position === "1st");
-                                    const matchesSecond = matchesVsOpponent.filter(m => m.position === "2nd");
+                        {/* view of breakdowns per leader - of which we hide if the total i.e. games played is 0*/}
+                        {total > 0 ? (
+                            <div className='by-leader'>
+                                <h3>Opponent Leader Breakdown</h3>
+                                <div className='sorted-leader-cards'>
+                                    {[...new Set(matches.map(m => m.opposing_leader_id))].map(opponentId => {
+                                        const opponent = leaders.find(l => l.id === opponentId);
+                                        const matchesVsOpponent = matches.filter(m => m.opposing_leader_id === opponentId);
+                                        const matchesFirst = matchesVsOpponent.filter(m => m.position === "1st");
+                                        const matchesSecond = matchesVsOpponent.filter(m => m.position === "2nd");
 
-                                    const winsFirst = matchesFirst.filter(m => m.result === "win").length;
-                                    const winsSecond = matchesSecond.filter(m => m.result === "win").length;
+                                        const winsFirst = matchesFirst.filter(m => m.result === "win").length;
+                                        const winsSecond = matchesSecond.filter(m => m.result === "win").length;
 
-                                    const rateFirst = matchesFirst.length > 0 ? Math.round((winsFirst / matchesFirst.length) * 100) : 0;
-                                    const rateSecond = matchesSecond.length > 0 ? Math.round((winsSecond / matchesSecond.length) * 100) : 0;
+                                        const rateFirst = matchesFirst.length > 0 ? Math.round((winsFirst / matchesFirst.length) * 100) : 0;
+                                        const rateSecond = matchesSecond.length > 0 ? Math.round((winsSecond / matchesSecond.length) * 100) : 0;
 
-                                    return (
-                                        <div key={opponentId} className='opp-leaders'>
-                                            {opponent ? (
-                                                <>
-                                                    <img src={opponent.image_url} alt={opponent.name} width={150} />
-                                                    <h4>{opponent.name} {opponent.set}</h4>
-                                                </>
-                                            ) : (
-                                                <h4>Unknown Leader #{opponentId}</h4>
-                                            )}
-                                            <p>Total Matches: {matchesVsOpponent.length}</p>
-                                            <p>Win Rate Going 1st: {rateFirst}%</p>
-                                            <p>Win Rate Going 2nd: {rateSecond}%</p>
-                                        </div>
-                                    );
-                                })}
+                                        return (
+                                            <div key={opponentId} className='opp-leaders'>
+                                                {opponent ? (
+                                                    <>
+                                                        <img src={opponent.image_url} alt={opponent.name} width={150} />
+                                                        <h4>{opponent.name} {opponent.set}</h4>
+                                                    </>
+                                                ) : (
+                                                    <h4>Unknown Leader #{opponentId}</h4>
+                                                )}
+                                                <p>Total Matches: {matchesVsOpponent.length}</p>
+                                                <p>Win Rate Going 1st: {rateFirst}%</p>
+                                                <p>Win Rate Going 2nd: {rateSecond}%</p>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
                             </div>
-                        </div>
+                        ) : (
+                            // place holder if no games have been played with this leader before
+                            <h2>No matches found for this leader.</h2>
+                        )}
                     </div>
                     {/* Log Match */}
                     <div className='bottom-section'>
@@ -218,31 +223,36 @@ function MatchLogs() {
                             </form>
                         </div>
 
-                        {/* Match History  window with pagnation*/}
-                        <div className="match-history">
-                            <h3>Match History</h3>
-                            <div>
-                                <button
-                                    disabled={currentPage === 1}
-                                    onClick={() => setCurrentPage(prev => prev - 1)}
-                                >Prev</button>
-                                <button
-                                    disabled={indexOfLastMatch >= matches.length}
-                                    onClick={() => setCurrentPage(prev => prev + 1)}
-                                >Next</button>
+                        {/* Match History  window with pagnation - of which we hide if the total i.e. games played is 0*/}
+                        {total > 0 ? (
+                            <div className="match-history">
+                                <h3>Match History</h3>
+                                <div>
+                                    <button
+                                        disabled={currentPage === 1}
+                                        onClick={() => setCurrentPage(prev => prev - 1)}
+                                    >Prev</button>
+                                    <button
+                                        disabled={indexOfLastMatch >= matches.length}
+                                        onClick={() => setCurrentPage(prev => prev + 1)}
+                                    >Next</button>
+                                </div>
+                                <ul>
+                                    {currentMatches.map(match => {
+                                        const opponent = leaders.find(l => l.id === match.opposing_leader_id);
+                                        const opponentName = opponent ? `${opponent.name} ${opponent.set}` : `Leader #${match.opposing_leader_id}`;
+                                        return (
+                                            <li key={match.id}>
+                                                {match.result.toUpperCase()} vs {opponentName} --- Going {match.position} --- {new Date(match.date).toISOString().split('T')[0]}
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
                             </div>
-                            <ul>
-                                {currentMatches.map(match => {
-                                    const opponent = leaders.find(l => l.id === match.opposing_leader_id);
-                                    const opponentName = opponent ? `${opponent.name} ${opponent.set}` : `Leader #${match.opposing_leader_id}`;
-                                    return (
-                                        <li key={match.id}>
-                                            {match.result.toUpperCase()} vs {opponentName} --- Going {match.position} --- {new Date(match.date).toISOString().split('T')[0]}
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                        </div>
+                        ) : (
+                            // place holder if no games have been played with this leader before
+                            <h2>No matches found for this leader.</h2>
+                        )}
                     </div>
                 </div>
 

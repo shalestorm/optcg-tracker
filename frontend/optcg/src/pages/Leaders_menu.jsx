@@ -66,33 +66,34 @@ function LeadersMenu() {
                     ))}
                 </div>
             </div>
+            {sortedStats.length > 0 && (
+                <div>
+                    <h2>Previously Played Leaders</h2>
+                    <label>Sort by: </label>
+                    <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+                        <option value="mostPlayed">Most Played</option>
+                        <option value="highestWinRate">Highest Win Rate</option>
+                    </select>
 
-            <div>
-                <h2>Previously Played Leaders</h2>
-                <label>Sort by: </label>
-                <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-                    <option value="mostPlayed">Most Played</option>
-                    <option value="highestWinRate">Highest Win Rate</option>
-                </select>
-
-                <div className='previously-played'>
-                    <div className='previously-played-scroll'>
-                        {sortedStats.map((leader) => (
-                            <div
-                                key={leader.id}
-                                onClick={() => handleSelectLeader(leader)}
-                                className='played-leaders'
-                            >
-                                <img src={leader.image_url} alt={leader.name} width={150} height={200} />
-                                <h3>{leader.name}</h3>
-                                <p>Set: {leader.set}</p>
-                                <p>Total Matches: {leader.totalMatches}</p>
-                                <p>Win Rate: {leader.winRate}%</p>
-                            </div>
-                        ))}
+                    <div className='previously-played'>
+                        <div className='previously-played-scroll'>
+                            {sortedStats.map((leader) => (
+                                <div
+                                    key={leader.id}
+                                    onClick={() => handleSelectLeader(leader)}
+                                    className='played-leaders'
+                                >
+                                    <img src={leader.image_url} alt={leader.name} width={150} height={200} />
+                                    <h3>{leader.name}</h3>
+                                    <p>Set: {leader.set}</p>
+                                    <p>Total Matches: {leader.totalMatches}</p>
+                                    <p>Win Rate: {leader.winRate}%</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 }
