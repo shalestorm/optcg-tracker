@@ -142,8 +142,8 @@ function MatchLogs() {
                                                     <h4>Unknown Leader #{opponentId}</h4>
                                                 )}
                                                 <p>Total Matches: {matchesVsOpponent.length}</p>
-                                                <p>Win Rate Going 1st: {rateFirst}%</p>
-                                                <p>Win Rate Going 2nd: {rateSecond}%</p>
+                                                <p>Win Rate Going 1st: {matchesFirst.length > 0 ? `${rateFirst}%` : "N/A"}</p>
+                                                <p>Win Rate Going 2nd: {matchesSecond.length > 0 ? `${rateSecond}%` : "N/A"}</p>
                                             </div>
                                         );
                                     })}
