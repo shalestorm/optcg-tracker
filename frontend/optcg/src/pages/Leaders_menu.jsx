@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useLeader } from '../context/LeaderContext.jsx';
-import { Helmet } from 'react-helmet';
+
 
 
 function LeadersMenu() {
     const [leaders, setLeaders] = useState([]);
     const [matches, setMatches] = useState([]);
     const [sortBy, setSortBy] = useState('mostPlayed');
-    const { setSelectedLeader } = useLeader();
+
     const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState('');
 
@@ -25,7 +24,7 @@ function LeadersMenu() {
     }, []);
 
     const handleSelectLeader = (leader) => {
-        setSelectedLeader(leader);
+
         navigate(`/leaders/${leader.id}/matches`);
     };
 
@@ -58,12 +57,12 @@ function LeadersMenu() {
         leader.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         leader.set.toLowerCase().includes(searchQuery.toLowerCase())
     );
+    useEffect(() => {
+        document.title = "☠️Select A Leader☠️"; // Helmet absolutely hates me
+    }, [])
 
     return (
         <div className='leader-menu-container'>
-            <Helmet>
-                <title>🏴‍☠️Choose A Leader🏴‍☠️</title>
-            </Helmet>
             <h2>Select a Leader</h2>
             <input
                 type="text"

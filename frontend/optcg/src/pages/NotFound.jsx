@@ -1,24 +1,26 @@
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
-import '../../public/Nothing-at-all.jpeg'
-import '../../public/404.png'
+import nothingAtAllImage from '../assets/Nothing-at-all.jpeg';
+import notFoundImage from '../assets/404.png';
+import { useEffect } from 'react';
+
 
 
 export default function NotFound() {
+    useEffect(() => {
+        document.title = "🙃404 - ZORO IS LOST🙃"; // Helmet absolutely hates me
+    }, [])
+
     return (
         <div className="generic-container">
-            <Helmet>
-                <title>404 - Page Not Found</title>
-            </Helmet>
             <h1>Oh no! Zoro is lost again</h1>
             <img
-                src="/404.png"
+                src={notFoundImage}
                 alt="Nothing at all"
                 style={{ maxWidth: '700px', width: '100%', marginBottom: '20px' }}
             />
             <h2>And what did you find Zoro?</h2>
             <img
-                src="/Nothing-at-all.jpeg"
+                src={nothingAtAllImage}
                 alt="Nothing at all"
                 style={{ maxWidth: '500px', width: '100%', marginBottom: '20px' }}
             />

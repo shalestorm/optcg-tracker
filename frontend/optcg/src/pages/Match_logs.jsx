@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
+
 
 function MatchLogs() {
     const { leaderId } = useParams();
@@ -70,11 +70,13 @@ function MatchLogs() {
     const total = matches.length;
     const winRate = total > 0 ? Math.round((wins / total) * 100) : 0;
 
+
+    useEffect(() => {
+        document.title = "⚔️Matchup Stats⚔️"; // Helmet absolutely hates me
+    }, [])
+
     return (
         <div>
-            <Helmet>
-                <title>☠️Match Logs☠️</title>
-            </Helmet>
             {selectedLeader && leaderId ? (
                 <div className='match-container'>
                     <div className='button-container'>
