@@ -4,7 +4,7 @@ from typing import Optional
 
 # trying pydantic - still not cool. but i think i can grasp it
 
-
+#leaders
 class LeaderBase(BaseModel):
     name: str
     image_url: Optional[str] = None
@@ -22,6 +22,8 @@ class Leader(LeaderBase):
         orm_mode = True
 
 
+
+#matches
 class MatchBase(BaseModel):
     result: str
     position: str
