@@ -12,6 +12,10 @@ origins = [
 ]
 models.Base.metadata.create_all(bind=engine)
 
+
+# >:( why cors always so mad!
+
+
 app.include_router(router)
 app.add_middleware(
     CORSMiddleware,

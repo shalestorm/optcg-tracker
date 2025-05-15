@@ -2,6 +2,8 @@ from pydantic import BaseModel
 from datetime import datetime
 from typing import Optional
 
+# trying pydantic - still not cool. but i think i can grasp it
+
 
 class LeaderBase(BaseModel):
     name: str

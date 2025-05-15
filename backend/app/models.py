@@ -3,6 +3,8 @@ from sqlalchemy.orm import relationship
 from datetime import datetime, timezone
 from .database import Base
 
+# I know i know - pydantic is cool and all xD but its just not for me
+
 
 class Leader(Base):
     __tablename__ = "leaders"

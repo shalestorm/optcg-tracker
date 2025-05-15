@@ -1,5 +1,13 @@
 const fetch = require('node-fetch');
-const fs = require('fs');
+const fs = require('fs'); s
+
+
+//again just a cool easy way to push my json leaders file to my DB
+// could not be bothered to make those queries lol
+// not needed after the first run - but useful for building it up on a new machine
+// ill leave it here
+
+
 
 // URL for the "local api"
 const LOCAL_API = 'http://localhost:8000/leaders/';
