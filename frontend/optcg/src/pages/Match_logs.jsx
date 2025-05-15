@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 
 function MatchLogs() {
+    // O_O wall of vars
     const { leaderId } = useParams();
     const [matches, setMatches] = useState([]);
     const [leaders, setLeaders] = useState([]);
@@ -83,6 +84,7 @@ function MatchLogs() {
                         <button
                             onClick={(e) => {
                                 e.stopPropagation();
+                                //deletion method, mostly because of testing - and also to show i know how to use the method
                                 if (confirm(`Delete all matches where ${selectedLeader.set} ${selectedLeader.name} was the active leader?`)) {
                                     fetch(`http://localhost:8000/matches/leader/${selectedLeader.id}`, {
                                         method: 'DELETE'
@@ -125,15 +127,19 @@ function MatchLogs() {
                             <div className='by-leader'>
                                 <h3>Opponent Leader Breakdown</h3>
                                 <div className='sorted-leader-cards'>
+                                    {/* new set construction via looking at matches table*/}
                                     {[...new Set(matches.map(m => m.opposing_leader_id))].map(opponentId => {
+                                        //we map out said set via looking at the opponent leader id in the table
                                         const opponent = leaders.find(l => l.id === opponentId);
                                         const matchesVsOpponent = matches.filter(m => m.opposing_leader_id === opponentId);
+                                        //we then set up some variables to build out cards by looking at the position
+                                        //in the table
                                         const matchesFirst = matchesVsOpponent.filter(m => m.position === "1st");
                                         const matchesSecond = matchesVsOpponent.filter(m => m.position === "2nd");
 
                                         const winsFirst = matchesFirst.filter(m => m.result === "win").length;
                                         const winsSecond = matchesSecond.filter(m => m.result === "win").length;
-
+                                        //just calculating win percentage For each individually going first  or secon
                                         const rateFirst = matchesFirst.length > 0 ? Math.round((winsFirst / matchesFirst.length) * 100) : 0;
                                         const rateSecond = matchesSecond.length > 0 ? Math.round((winsSecond / matchesSecond.length) * 100) : 0;
 
@@ -148,6 +154,10 @@ function MatchLogs() {
                                                     <h4>Unknown Leader #{opponentId}</h4>
                                                 )}
                                                 <p>Total Matches: {matchesVsOpponent.length}</p>
+                                                {/* since winning 3 times going first, and never going second
+                                                would show the same result as winning once going first and losing going 2nd twice
+                                                we check if the length of matches played in either position is greater than 0
+                                                so that instead of 0% we show N/A if applicable - thanks to my homie gavin for spotting that*/}
                                                 <p>Win Rate Going 1st: {matchesFirst.length > 0 ? `${rateFirst}%` : "N/A"}</p>
                                                 <p>Win Rate Going 2nd: {matchesSecond.length > 0 ? `${rateSecond}%` : "N/A"}</p>
                                             </div>
@@ -280,7 +290,7 @@ function MatchLogs() {
                         )}
                     </div>
                 </div>
-
+                //default if there is not leader selected at all but we land on the page
             ) : (
                 <h1>No leader selected. <Link to="/leaders">Pick one here.</Link></h1>
             )}

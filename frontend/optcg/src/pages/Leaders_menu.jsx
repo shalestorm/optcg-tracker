@@ -7,7 +7,6 @@ function LeadersMenu() {
     const [leaders, setLeaders] = useState([]);
     const [matches, setMatches] = useState([]);
     const [sortBy, setSortBy] = useState('mostPlayed');
-
     const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState('');
 
@@ -52,7 +51,7 @@ function LeadersMenu() {
         }
         return 0;
     });
-
+    //creates the filtered list of leaders based on our search query - a state that changes as changes are made to the text field
     const filteredLeaders = leaders.filter((leader) =>
         leader.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         leader.set.toLowerCase().includes(searchQuery.toLowerCase())
@@ -68,6 +67,7 @@ function LeadersMenu() {
                 type="text"
                 placeholder="Search by name or set..."
                 value={searchQuery}
+                //event being a keypress here, we set the query - of which when empty is FIltering by nothing which means we will get our normal full spectrum of leaders
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="search-bar"
             />
@@ -94,7 +94,7 @@ function LeadersMenu() {
                         <option value="mostPlayed">Most Played</option>
                         <option value="highestWinRate">Highest Win Rate</option>
                     </select>
-
+                    {/*wrap these in links later for uniformity*/}
                     <div className='previously-played'>
                         <div className='previously-played-scroll'>
                             {sortedStats.map((leader) => (
