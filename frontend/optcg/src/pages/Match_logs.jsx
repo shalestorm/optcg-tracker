@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import API_BASE_URL from '../config'
 
 
 function MatchLogs() {
@@ -22,7 +23,7 @@ function MatchLogs() {
 
     // Grabs every leader for the match logging form
     useEffect(() => {
-        fetch('http://localhost:8000/leaders/')
+        fetch(`${API_BASE_URL}/leaders/`)
             .then(res => res.json())
             .then(data => setLeaders(data))
             .catch(err => console.error('Failed to fetch leaders:', err));
@@ -31,7 +32,7 @@ function MatchLogs() {
     // Grabs matches for where the selected leader was played as the selected leader
     useEffect(() => {
         if (selectedLeader) {
-            fetch(`http://localhost:8000/leaders/${selectedLeader.id}/matches`)
+            fetch(`${API_BASE_URL}/leaders/${selectedLeader.id}/matches`)
                 .then(res => res.json())
                 .then(data => setMatches(data))
                 .catch(err => console.error('Failed to fetch matches:', err));
@@ -49,7 +50,7 @@ function MatchLogs() {
             opposing_leader_id: parseInt(opposingLeaderId),
         };
 
-        fetch('http://localhost:8000/matches/', {
+        fetch(`${API_BASE_URL}/matches/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newMatch),
@@ -86,14 +87,14 @@ function MatchLogs() {
                                 e.stopPropagation();
                                 //deletion method, mostly because of testing - and also to show i know how to use the method
                                 if (confirm(`Delete all matches where ${selectedLeader.set} ${selectedLeader.name} was the active leader?`)) {
-                                    fetch(`http://localhost:8000/matches/leader/${selectedLeader.id}`, {
+                                    fetch(`${API_BASE_URL}/matches/leader/${selectedLeader.id}`, {
                                         method: 'DELETE'
                                     })
                                         .then(res => res.json())
                                         .then(data => {
                                             alert(`Deleted ${data.deleted_count} match(es).`);
                                             // refect in case we delete match history, otherwise element get janked up
-                                            fetch(`http://localhost:8000/leaders/${selectedLeader.id}/matches`)
+                                            fetch(`${API_BASE_URL}/leaders/${selectedLeader.id}/matches`)
                                                 .then(res => res.json())
                                                 .then(data => setMatches(data));
                                         })

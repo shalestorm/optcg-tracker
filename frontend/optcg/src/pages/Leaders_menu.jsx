@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../config'
 
 
 
@@ -11,12 +12,12 @@ function LeadersMenu() {
     const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
-        fetch("http://localhost:8000/leaders/")
+        fetch(`${BASE_URL}/leaders/`)
             .then(res => res.json())
             .then(setLeaders)
             .catch(err => console.error("Failed to fetch leaders", err));
 
-        fetch("http://localhost:8000/matches/")
+        fetch(`${BASE_URL}/matches/`)
             .then(res => res.json())
             .then(setMatches)
             .catch(err => console.error("Failed to fetch matches", err));
