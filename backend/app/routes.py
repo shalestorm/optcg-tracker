@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
-from . import crud, schemas, models
+from . import crud, schemas
 from .database import get_db
 from .models import Match
 
@@ -22,8 +22,8 @@ def create_leader(leader: schemas.LeaderCreate, db: Session = Depends(get_db)):
 def read_leaders(
     skip: int = 0,
     limit: int = 100,
-    name: str = None,
-    set: str = None,
+    name: str = None,  # type: ignore
+    set: str = None,  # type: ignore
     db: Session = Depends(get_db)
 ):
     if name and set:
