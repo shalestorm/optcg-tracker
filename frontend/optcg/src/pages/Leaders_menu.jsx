@@ -12,12 +12,12 @@ function LeadersMenu() {
     const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
-        fetch(`${BASE_URL}/leaders/`)
+        fetch(`${API_BASE_URL}/leaders/`)
             .then(res => res.json())
             .then(setLeaders)
             .catch(err => console.error("Failed to fetch leaders", err));
 
-        fetch(`${BASE_URL}/matches/`)
+        fetch(`${API_BASE_URL}/matches/`)
             .then(res => res.json())
             .then(setMatches)
             .catch(err => console.error("Failed to fetch matches", err));
